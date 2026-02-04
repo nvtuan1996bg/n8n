@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<script type="module" src="https://cdn.n8nchatui.com/v1/pole-embed-yard.js"></script>
+
+	<style>
+		html,
+		body {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			/* 🔒 Stop the page itself from scrolling */
+			overflow: hidden;
+		}
+
+		/* 🔒 Make the chat fill the viewport and stay fixed */
+		#chat-wrapper {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="chat-wrapper">
+		<n8nchatui-inpage></n8nchatui-inpage>
+	</div>
+
+	<script type="module" defer>
+		import Chatbot from "https://cdn.n8nchatui.com/v1/pole-embed-yard.js";
+
+    Chatbot.initFull({
+      n8nChatUrl: "https://babur3428.app.n8n.cloud/webhook/9191d136-aeeb-4f79-9dc2-8a0883de90a8/chat",
+
+      /* 👇 IMPORTANT: Session ID from user */
+      sessionIdentifier: "",
+
+      /* 👇 ALL METADATA SENT TO CHAT TRIGGER */
+      metadata: {
+        user_id: "",
+        user_name: "",
+        user_email: "",
+        os: "",
+        device_id: "",
+        device_name: "",
+        installed_version: "",
+        country:"VN",
+        gems:"",
+        money_spent: ""
+      },
+
+      theme: {
+        button: {
+          iconColor: "#373434",
+          backgroundColor: "#ffc8b8"
+        },
+
+        chatWindow: {
+          borderRadiusStyle: "rounded",
+          avatarBorderRadius: 25,
+          messageBorderRadius: 6,
+
+          /* ✅ KEEP TITLE BAR (Cooking Chaos + reset) */
+          showTitle: true,
+          title: "Customer Love Team",
+          titleAvatarSrc: "https://www.flowmotionentertainment.com/media/2025/FME_Heart__small-version.jpg",
+          avatarSize: 50,
+
+          /* ❌ NO WELCOME MESSAGE */
+          welcomeMessage: "",
+          errorMessage:
+            "We are currently not available please reach us at support@flowmotionentertainment.com",
+
+          backgroundColor: "#ffffff",
+
+          /* Let the widget size itself inside our fixed wrapper */
+          height: 0,
+          width: 0,
+          fontSize: 14,
+
+          /* ✅ ENABLE INTERNAL SCROLLING */
+          showScrollbar: true,
+
+          /* ❌ NO STARTER PROMPTS */
+          starterPrompts: [],
+          starterPromptFontSize: 0,
+
+          renderHTML: true,
+          clearChatOnReload: false,
+
+          botMessage: {
+            backgroundColor: "#f36539",
+            textColor: "#fafafa",
+            showAvatar: false,
+            avatarSrc: "https://www.svgrepo.com/show/434767/customer-support.svg",
+            showCopyToClipboardIcon: false
+          },
+
+          userMessage: {
+            backgroundColor: "#fff6f3",
+            textColor: "#050505",
+            showAvatar: false,
+            avatarSrc: "https://www.svgrepo.com/show/532363/user-alt-1.svg"
+          },
+
+          /* ✅ INPUT BAR STAYS AT BOTTOM OF CHAT WINDOW */
+          textInput: {
+            placeholder: "Type your query",
+            backgroundColor: "#ffffff",
+            textColor: "#1e1e1f",
+            sendButtonColor: "#f36539",
+            maxChars: 500,
+            maxCharsWarningMessage:
+              "You exceeded the characters limit. Please input less than 500 characters.",
+            autoFocus: false,
+            borderRadius: 6,
+            sendButtonBorderRadius: 50
+          },
+
+          uploadsConfig: {
+            enabled: true,
+            acceptFileTypes: ["jpeg", "jpg", "png", "pdf"],
+            maxFiles: 5,
+            maxSizeInMB: 20
+          },
+
+          voiceInputConfig: {
+            enabled: false
+          }
+        },
+
+        footer: {
+          enabled: false
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
