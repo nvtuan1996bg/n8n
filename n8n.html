@@ -37,9 +37,19 @@
 
 	<script type="module" defer>
 		import Chatbot from "https://cdn.n8nchatui.com/v1/pole-embed-yard.js";
-
+		window.myChatCallbacks = {
+	  onWidgetOpen: function(data) {
+		console.log('onWidgetOpen');
+		// báo Unity khi widget mở -> UI chắc chắn render rồi
+		if (window.uniwebview) {
+		  window.uniwebview.postMessage("chatbot_ready");
+		  console.log('onWidgetOpen chatbot_ready');
+		}
+	  }
+	};
     Chatbot.initFull({
       n8nChatUrl: "https://babur3428.app.n8n.cloud/webhook/9191d136-aeeb-4f79-9dc2-8a0883de90a8/chat",
+		callbackRegistry: "myChatCallbacks",
 
       /* 👇 IMPORTANT: Session ID from user */
       sessionIdentifier: "",
@@ -148,4 +158,5 @@
 
 
 </html>
+
 
